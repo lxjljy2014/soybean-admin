@@ -1,7 +1,7 @@
 import { computed, ref, shallowRef } from 'vue';
 import type { RouteRecordRaw } from 'vue-router';
 import { defineStore } from 'pinia';
-import { useBoolean } from '@sa/hooks';
+import { useBoolean } from '@ma/hooks';
 import type { CustomRoute, ElegantConstRoute, LastLevelRouteKey, RouteKey, RouteMap } from '@elegant-router/types';
 import { SetupStoreId } from '@/enum';
 import { router } from '@/router';

@@ -2,7 +2,7 @@
 import { nextTick, reactive, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useElementBounding } from '@vueuse/core';
-import { PageTab } from '@sa/materials';
+import { PageTab } from '@ma/materials';
 import BetterScroll from '@/components/custom/better-scroll.vue';
 import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';

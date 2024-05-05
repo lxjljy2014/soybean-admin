@@ -1,6 +1,6 @@
 {
-  "name": "@sa/hooks",
-  "version": "1.0.9",
+  "name": "@ma/hooks",
+  "version": "1.0.0",
   "exports": {
     ".": "./src/index.ts"
   },
@@ -10,6 +10,6 @@
     }
   },
   "dependencies": {
-    "@sa/axios": "workspace:*"
+    "@ma/axios": "workspace:*"
   }
 }

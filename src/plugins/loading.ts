@@ -1,5 +1,5 @@
 // @unocss-include
-import { getRgbOfColor } from '@sa/utils';
+import { getRgbOfColor } from '@ma/utils';
 import { $t } from '@/locales';
 import { localStg } from '@/utils/storage';
 import systemLogo from '@/assets/svg-icon/logo.svg?raw';

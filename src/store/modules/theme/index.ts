@@ -2,7 +2,7 @@ import { computed, effectScope, onScopeDispose, ref, toRefs, watch } from 'vue';
 import type { Ref } from 'vue';
 import { defineStore } from 'pinia';
 import { useEventListener, usePreferredColorScheme } from '@vueuse/core';
-import { getColorPalette } from '@sa/color-palette';
+import { getColorPalette } from '@ma/color-palette';
 import { SetupStoreId } from '@/enum';
 import { localStg } from '@/utils/storage';
 import { addThemeVarsToHtml, createThemeToken, getNaiveTheme, initThemeSettings, toggleCssDarkMode } from './shared';

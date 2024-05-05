@@ -1,6 +1,6 @@
 import type { GlobalThemeOverrides } from 'naive-ui';
-import { getColorByPaletteNumber, getColorPalette } from '@sa/color-palette';
-import { addColorAlpha, getRgbOfColor } from '@sa/utils';
+import { getColorByPaletteNumber, getColorPalette } from '@ma/color-palette';
+import { addColorAlpha, getRgbOfColor } from '@ma/utils';
 import { overrideThemeSettings, themeSettings } from '@/theme/settings';
 import { themeVars } from '@/theme/vars';
 import { localStg } from '@/utils/storage';

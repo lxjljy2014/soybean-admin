@@ -1,4 +1,4 @@
-import { createLocalforage, createStorage } from '@sa/utils';
+import { createLocalforage, createStorage } from '@ma/utils';
 
 export const localStg = createStorage<StorageType.Local>('local');
 

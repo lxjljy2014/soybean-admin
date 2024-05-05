@@ -5,7 +5,7 @@
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
 
-- **packages**: @sa/scripts: add new commit type `optimize` and commit scope `packages` &nbsp;-&nbsp; by @honghuangdc [<samp>(fbc2e)</samp>](https://github.com/soybeanjs/soybean-admin/commit/fbc2e61)
+- **packages**: @ma/scripts: add new commit type `optimize` and commit scope `packages` &nbsp;-&nbsp; by @honghuangdc [<samp>(fbc2e)</samp>](https://github.com/soybeanjs/soybean-admin/commit/fbc2e61)
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
 
@@ -88,7 +88,7 @@
   - perf useSignal &nbsp;-&nbsp; by @honghuangdc [<samp>(5d45c)</samp>](https://github.com/soybeanjs/soybean-admin/commit/5d45cef)
 - **projects**:
   - remove useless prop `title` of `NDrawer` &nbsp;-&nbsp; by @honghuangdc [<samp>(fdde6)</samp>](https://github.com/soybeanjs/soybean-admin/commit/fdde679)
-  - add tsconfig.json for @sa/color-palette &nbsp;-&nbsp; by @honghuangdc [<samp>(d460e)</samp>](https://github.com/soybeanjs/soybean-admin/commit/d460e5c)
+  - add tsconfig.json for @ma/color-palette &nbsp;-&nbsp; by @honghuangdc [<samp>(d460e)</samp>](https://github.com/soybeanjs/soybean-admin/commit/d460e5c)
 
 ### &nbsp;&nbsp;&nbsp;💅 Refactors
 
@@ -137,7 +137,7 @@
 
 ### &nbsp;&nbsp;&nbsp;💅 Refactors
 
-- **hooks**: refactor @sa/color-palette &nbsp;-&nbsp; by @honghuangdc [<samp>(93191)</samp>](https://github.com/soybeanjs/soybean-admin/commit/9319173)
+- **hooks**: refactor @ma/color-palette &nbsp;-&nbsp; by @honghuangdc [<samp>(93191)</samp>](https://github.com/soybeanjs/soybean-admin/commit/9319173)
 
 ### &nbsp;&nbsp;&nbsp;📖 Documentation
 
@@ -247,7 +247,7 @@
 - **projects**:
   - 1.0 beta &nbsp;-&nbsp; by @honghuangdc [<samp>(e918a)</samp>](https://github.com/soybeanjs/soybean-admin/commit/e918a2c)
   - support Vite5 &nbsp;-&nbsp; by @honghuangdc [<samp>(96e4a)</samp>](https://github.com/soybeanjs/soybean-admin/commit/96e4aff)
-  - @sa/axios: createRequest, createFlatRequest, createHookRequest &nbsp;-&nbsp; by @honghuangdc [<samp>(bac16)</samp>](https://github.com/soybeanjs/soybean-admin/commit/bac1632)
+  - @ma/axios: createRequest, createFlatRequest, createHookRequest &nbsp;-&nbsp; by @honghuangdc [<samp>(bac16)</samp>](https://github.com/soybeanjs/soybean-admin/commit/bac1632)
   - add app loading &nbsp;-&nbsp; by @honghuangdc [<samp>(c6545)</samp>](https://github.com/soybeanjs/soybean-admin/commit/c65451b)
   - add copyright, unocss shortcut: card-wrapper, update package.json &nbsp;-&nbsp; by @honghuangdc [<samp>(affcc)</samp>](https://github.com/soybeanjs/soybean-admin/commit/affcc26)
   - add page: about &nbsp;-&nbsp; by @honghuangdc [<samp>(4955f)</samp>](https://github.com/soybeanjs/soybean-admin/commit/4955f1a)
@@ -255,7 +255,7 @@
   - filter tabs which are not in routes &nbsp;-&nbsp; by @honghuangdc [<samp>(f59f3)</samp>](https://github.com/soybeanjs/soybean-admin/commit/f59f348)
   - packages/scripts: add command changelog,release &nbsp;-&nbsp; by @honghuangdc [<samp>(dafb6)</samp>](https://github.com/soybeanjs/soybean-admin/commit/dafb6fa)
   - add script: gen-route &nbsp;-&nbsp; by @honghuangdc [<samp>(697c1)</samp>](https://github.com/soybeanjs/soybean-admin/commit/697c1b6)
-  - @sa/axios: add qs stringify for params &nbsp;-&nbsp; by @honghuangdc [<samp>(2400c)</samp>](https://github.com/soybeanjs/soybean-admin/commit/2400c02)
+  - @ma/axios: add qs stringify for params &nbsp;-&nbsp; by @honghuangdc [<samp>(2400c)</samp>](https://github.com/soybeanjs/soybean-admin/commit/2400c02)
   - page home & perf useEcharts &nbsp;-&nbsp; by @honghuangdc [<samp>(62e4d)</samp>](https://github.com/soybeanjs/soybean-admin/commit/62e4da0)
   - finish page home &nbsp;-&nbsp; by @honghuangdc [<samp>(7bd1e)</samp>](https://github.com/soybeanjs/soybean-admin/commit/7bd1e47)
   - add page function_tab &nbsp;-&nbsp; by @honghuangdc [<samp>(6ff86)</samp>](https://github.com/soybeanjs/soybean-admin/commit/6ff86e7)
@@ -421,7 +421,7 @@
   - delete src/locales/lang/zh-CN.ts &nbsp;-&nbsp; by @honghuangdc [<samp>(377db)</samp>](https://github.com/soybeanjs/soybean-admin/commit/377db82)
 - **projects**:
   - use eslint flat config & update config &nbsp;-&nbsp; by @honghuangdc [<samp>(a176d)</samp>](https://github.com/soybeanjs/soybean-admin/commit/a176dc4)
-  - update @sa/scripts &nbsp;-&nbsp; by @honghuangdc [<samp>(d7785)</samp>](https://github.com/soybeanjs/soybean-admin/commit/d778560)
+  - update @ma/scripts &nbsp;-&nbsp; by @honghuangdc [<samp>(d7785)</samp>](https://github.com/soybeanjs/soybean-admin/commit/d778560)
   - update pnpm version &nbsp;-&nbsp; by @honghuangdc [<samp>(55f76)</samp>](https://github.com/soybeanjs/soybean-admin/commit/55f7638)
   - update eslint config &nbsp;-&nbsp; by @honghuangdc [<samp>(5023f)</samp>](https://github.com/soybeanjs/soybean-admin/commit/5023f37)
   - lock deps versions &nbsp;-&nbsp; by @honghuangdc [<samp>(a24f9)</samp>](https://github.com/soybeanjs/soybean-admin/commit/a24f963)
@@ -525,7 +525,7 @@
 - **projects**:
   - 1.0 beta &nbsp;-&nbsp; by @honghuangdc [<samp>(e918a)</samp>](https://github.com/soybeanjs/soybean-admin/commit/e918a2c)
   - support Vite5 &nbsp;-&nbsp; by @honghuangdc [<samp>(96e4a)</samp>](https://github.com/soybeanjs/soybean-admin/commit/96e4aff)
-  - @sa/axios: createRequest, createFlatRequest, createHookRequest &nbsp;-&nbsp; by @honghuangdc [<samp>(bac16)</samp>](https://github.com/soybeanjs/soybean-admin/commit/bac1632)
+  - @ma/axios: createRequest, createFlatRequest, createHookRequest &nbsp;-&nbsp; by @honghuangdc [<samp>(bac16)</samp>](https://github.com/soybeanjs/soybean-admin/commit/bac1632)
   - add app loading &nbsp;-&nbsp; by @honghuangdc [<samp>(c6545)</samp>](https://github.com/soybeanjs/soybean-admin/commit/c65451b)
   - add copyright, unocss shortcut: card-wrapper, update package.json &nbsp;-&nbsp; by @honghuangdc [<samp>(affcc)</samp>](https://github.com/soybeanjs/soybean-admin/commit/affcc26)
   - add page: about &nbsp;-&nbsp; by @honghuangdc [<samp>(4955f)</samp>](https://github.com/soybeanjs/soybean-admin/commit/4955f1a)
@@ -533,7 +533,7 @@
   - filter tabs which are not in routes &nbsp;-&nbsp; by @honghuangdc [<samp>(f59f3)</samp>](https://github.com/soybeanjs/soybean-admin/commit/f59f348)
   - packages/scripts: add command changelog,release &nbsp;-&nbsp; by @honghuangdc [<samp>(dafb6)</samp>](https://github.com/soybeanjs/soybean-admin/commit/dafb6fa)
   - add script: gen-route &nbsp;-&nbsp; by @honghuangdc [<samp>(697c1)</samp>](https://github.com/soybeanjs/soybean-admin/commit/697c1b6)
-  - @sa/axios: add qs stringify for params &nbsp;-&nbsp; by @honghuangdc [<samp>(2400c)</samp>](https://github.com/soybeanjs/soybean-admin/commit/2400c02)
+  - @ma/axios: add qs stringify for params &nbsp;-&nbsp; by @honghuangdc [<samp>(2400c)</samp>](https://github.com/soybeanjs/soybean-admin/commit/2400c02)
   - page home & perf useEcharts &nbsp;-&nbsp; by @honghuangdc [<samp>(62e4d)</samp>](https://github.com/soybeanjs/soybean-admin/commit/62e4da0)
   - finish page home &nbsp;-&nbsp; by @honghuangdc [<samp>(7bd1e)</samp>](https://github.com/soybeanjs/soybean-admin/commit/7bd1e47)
   - add page function_tab &nbsp;-&nbsp; by @honghuangdc [<samp>(6ff86)</samp>](https://github.com/soybeanjs/soybean-admin/commit/6ff86e7)
@@ -691,7 +691,7 @@
   - delete src/locales/lang/zh-CN.ts &nbsp;-&nbsp; by @honghuangdc [<samp>(377db)</samp>](https://github.com/soybeanjs/soybean-admin/commit/377db82)
 - **projects**:
   - use eslint flat config & update config &nbsp;-&nbsp; by @honghuangdc [<samp>(a176d)</samp>](https://github.com/soybeanjs/soybean-admin/commit/a176dc4)
-  - update @sa/scripts &nbsp;-&nbsp; by @honghuangdc [<samp>(d7785)</samp>](https://github.com/soybeanjs/soybean-admin/commit/d778560)
+  - update @ma/scripts &nbsp;-&nbsp; by @honghuangdc [<samp>(d7785)</samp>](https://github.com/soybeanjs/soybean-admin/commit/d778560)
   - update pnpm version &nbsp;-&nbsp; by @honghuangdc [<samp>(55f76)</samp>](https://github.com/soybeanjs/soybean-admin/commit/55f7638)
   - update eslint config &nbsp;-&nbsp; by @honghuangdc [<samp>(5023f)</samp>](https://github.com/soybeanjs/soybean-admin/commit/5023f37)
   - lock deps versions &nbsp;-&nbsp; by @honghuangdc [<samp>(a24f9)</samp>](https://github.com/soybeanjs/soybean-admin/commit/a24f963)

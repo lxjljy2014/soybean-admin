@@ -2,7 +2,7 @@
 declare namespace App {
   /** Theme namespace */
   namespace Theme {
-    type ColorPaletteNumber = import('@sa/color-palette').ColorPaletteNumber;
+    type ColorPaletteNumber = import('@ma/color-palette').ColorPaletteNumber;
 
     /** Theme token */
     type ThemeToken = {

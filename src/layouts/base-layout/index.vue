@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { AdminLayout, LAYOUT_SCROLL_EL_ID } from '@sa/materials';
-import type { LayoutMode } from '@sa/materials';
+import { AdminLayout, LAYOUT_SCROLL_EL_ID } from '@ma/materials';
+import type { LayoutMode } from '@ma/materials';
 import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
 import GlobalHeader from '../modules/global-header/index.vue';
