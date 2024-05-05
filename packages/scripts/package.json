@@ -2,7 +2,7 @@
   "name": "@ma/scripts",
   "version": "1.0.1",
   "bin": {
-    "sa": "./bin.ts"
+    "ma": "./bin.ts"
   },
   "exports": {
     ".": "./src/index.ts"
