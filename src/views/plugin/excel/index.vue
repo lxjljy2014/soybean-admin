@@ -5,7 +5,6 @@ import { useAppStore } from '@/store/modules/app';
 import { useTable } from '@/hooks/common/table';
 import { fetchGetUserList } from '@/service/api';
 import { enableStatusRecord, userGenderRecord } from '@/constants/business';
-import { $t } from '@/locales';
 
 const appStore = useAppStore();
 
@@ -32,19 +31,19 @@ const { columns, data, loading } = useTable({
     },
     {
       key: 'index',
-      title: $t('common.index'),
+      title: '序号',
       align: 'center',
       width: 64
     },
     {
       key: 'userName',
-      title: $t('page.manage.user.userName'),
+      title: '用户名',
       align: 'center',
       minWidth: 100
     },
     {
       key: 'userGender',
-      title: $t('page.manage.user.userGender'),
+      title: '性别',
       align: 'center',
       width: 100,
       render: row => {
@@ -57,32 +56,32 @@ const { columns, data, loading } = useTable({
           2: 'error'
         };
 
-        const label = $t(userGenderRecord[row.userGender]);
+        const label = userGenderRecord[row.userGender];
 
         return <NTag type={tagMap[row.userGender]}>{label}</NTag>;
       }
     },
     {
       key: 'nickName',
-      title: $t('page.manage.user.nickName'),
+      title: '昵称',
       align: 'center',
       minWidth: 100
     },
     {
       key: 'userPhone',
-      title: $t('page.manage.user.userPhone'),
+      title: '手机号',
       align: 'center',
       width: 120
     },
     {
       key: 'userEmail',
-      title: $t('page.manage.user.userEmail'),
+      title: '邮箱',
       align: 'center',
       minWidth: 200
     },
     {
       key: 'status',
-      title: $t('page.manage.user.userStatus'),
+      title: '状态',
       align: 'center',
       width: 100,
       render: row => {
@@ -95,7 +94,7 @@ const { columns, data, loading } = useTable({
           2: 'warning'
         };
 
-        const label = $t(enableStatusRecord[row.status]);
+        const label = enableStatusRecord[row.status];
 
         return <NTag type={tagMap[row.status]}>{label}</NTag>;
       }
@@ -144,11 +143,11 @@ function getTableValue(
   }
 
   if (key === 'status') {
-    return (item.status && $t(enableStatusRecord[item.status])) || null;
+    return (item.status && enableStatusRecord[item.status]) || null;
   }
 
   if (key === 'userGender') {
-    return (item.userGender && $t(userGenderRecord[item.userGender])) || null;
+    return (item.userGender && userGenderRecord[item.userGender]) || null;
   }
 
   return item[key];

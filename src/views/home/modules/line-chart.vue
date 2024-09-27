@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import { watch } from 'vue';
-import { $t } from '@/locales';
-import { useAppStore } from '@/store/modules/app';
 import { useEcharts } from '@/hooks/common/echarts';
 
 defineOptions({
   name: 'LineChart'
 });
-
-const appStore = useAppStore();
 
 const { domRef, updateOptions } = useEcharts(() => ({
   tooltip: {
@@ -21,7 +16,7 @@ const { domRef, updateOptions } = useEcharts(() => ({
     }
   },
   legend: {
-    data: [$t('page.home.downloadCount'), $t('page.home.registerCount')]
+    data: ['下载量', '注册量']
   },
   grid: {
     left: '3%',
@@ -40,7 +35,7 @@ const { domRef, updateOptions } = useEcharts(() => ({
   series: [
     {
       color: '#8e9dff',
-      name: $t('page.home.downloadCount'),
+      name: '下载量',
       type: 'line',
       smooth: true,
       stack: 'Total',
@@ -70,7 +65,7 @@ const { domRef, updateOptions } = useEcharts(() => ({
     },
     {
       color: '#26deca',
-      name: $t('page.home.registerCount'),
+      name: '注册量',
       type: 'line',
       smooth: true,
       stack: 'Total',
@@ -115,28 +110,9 @@ async function mockData() {
   });
 }
 
-function updateLocale() {
-  updateOptions((opts, factory) => {
-    const originOpts = factory();
-
-    opts.legend.data = originOpts.legend.data;
-    opts.series[0].name = originOpts.series[0].name;
-    opts.series[1].name = originOpts.series[1].name;
-
-    return opts;
-  });
-}
-
 async function init() {
   mockData();
 }
-
-watch(
-  () => appStore.locale,
-  () => {
-    updateLocale();
-  }
-);
 
 // init
 init();

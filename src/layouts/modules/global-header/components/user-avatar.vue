@@ -4,7 +4,6 @@ import type { VNode } from 'vue';
 import { useAuthStore } from '@/store/modules/auth';
 import { useRouterPush } from '@/hooks/common/router';
 import { useSvgIcon } from '@/hooks/common/icon';
-import { $t } from '@/locales';
 
 defineOptions({
   name: 'UserAvatar'
@@ -34,7 +33,7 @@ type DropdownOption =
 const options = computed(() => {
   const opts: DropdownOption[] = [
     {
-      label: $t('common.userCenter'),
+      label: '个人中心',
       key: 'user-center',
       icon: SvgIconVNode({ icon: 'ph:user-circle', fontSize: 18 })
     },
@@ -43,7 +42,7 @@ const options = computed(() => {
       key: 'divider'
     },
     {
-      label: $t('common.logout'),
+      label: '退出登录',
       key: 'logout',
       icon: SvgIconVNode({ icon: 'ph:sign-out', fontSize: 18 })
     }
@@ -54,10 +53,10 @@ const options = computed(() => {
 
 function logout() {
   window.$dialog?.info({
-    title: $t('common.tip'),
-    content: $t('common.logoutConfirm'),
-    positiveText: $t('common.confirm'),
-    negativeText: $t('common.cancel'),
+    title: '提示',
+    content: '确认退出登录吗？',
+    positiveText: '确定',
+    negativeText: '取消',
     onPositiveClick: () => {
       authStore.resetStore();
     }
@@ -75,9 +74,7 @@ function handleDropdown(key: DropdownKey) {
 </script>
 
 <template>
-  <NButton v-if="!authStore.isLogin" quaternary @click="loginOrRegister">
-    {{ $t('page.login.common.loginOrRegister') }}
-  </NButton>
+  <NButton v-if="!authStore.isLogin" quaternary @click="loginOrRegister">登录 / 注册</NButton>
   <NDropdown v-else placement="bottom" trigger="click" :options="options" @select="handleDropdown">
     <div>
       <ButtonIcon>

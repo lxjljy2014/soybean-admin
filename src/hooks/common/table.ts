@@ -1,10 +1,9 @@
-import { computed, effectScope, onScopeDispose, reactive, ref, watch } from 'vue';
+import { computed, effectScope, onScopeDispose, reactive, ref } from 'vue';
 import type { Ref } from 'vue';
 import type { PaginationProps } from 'naive-ui';
 import { jsonClone } from '@sa/utils';
 import { useBoolean, useHookTable } from '@sa/hooks';
 import { useAppStore } from '@/store/modules/app';
-import { $t } from '@/locales';
 
 type TableData = NaiveUI.TableData;
 type GetTableData<A extends NaiveUI.TableApiFn> = NaiveUI.GetTableData<A>;
@@ -70,13 +69,13 @@ export function useTable<A extends NaiveUI.TableApiFn>(config: NaiveUI.NaiveTabl
         } else if (column.type === 'selection') {
           checks.push({
             key: SELECTION_KEY,
-            title: $t('common.check'),
+            title: '勾选',
             checked: true
           });
         } else if (column.type === 'expand') {
           checks.push({
             key: EXPAND_KEY,
-            title: $t('common.expandColumn'),
+            title: '展开列',
             checked: true
           });
         }
@@ -143,7 +142,7 @@ export function useTable<A extends NaiveUI.TableApiFn>(config: NaiveUI.NaiveTabl
     },
     ...(showTotal
       ? {
-          prefix: page => $t('datatable.itemCount', { total: page.itemCount })
+          prefix: page => `共 ${page.itemCount} 条`
         }
       : {})
   });
@@ -180,15 +179,6 @@ export function useTable<A extends NaiveUI.TableApiFn>(config: NaiveUI.NaiveTabl
 
     await getData();
   }
-
-  scope.run(() => {
-    watch(
-      () => appStore.locale,
-      () => {
-        reloadColumns();
-      }
-    );
-  });
 
   onScopeDispose(() => {
     scope.stop();
@@ -238,7 +228,7 @@ export function useTableOperate<T extends TableData = TableData>(data: Ref<T[]>,
 
   /** the hook after the batch delete operation is completed */
   async function onBatchDeleted() {
-    window.$message?.success($t('common.deleteSuccess'));
+    window.$message?.success('删除成功');
 
     checkedRowKeys.value = [];
 
@@ -247,7 +237,7 @@ export function useTableOperate<T extends TableData = TableData>(data: Ref<T[]>,
 
   /** the hook after the delete operation is completed */
   async function onDeleted() {
-    window.$message?.success($t('common.deleteSuccess'));
+    window.$message?.success('删除成功');
 
     await getData();
   }

@@ -1,7 +1,6 @@
 import type { AxiosResponse } from 'axios';
 import { BACKEND_ERROR_CODE, createFlatRequest, createRequest } from '@sa/axios';
 import { useAuthStore } from '@/store/modules/auth';
-import { $t } from '@/locales';
 import { localStg } from '@/utils/storage';
 import { getServiceBaseURL } from '@/utils/service';
 import { getAuthorization, handleExpiredRequest, showErrorMsg } from './shared';
@@ -60,9 +59,9 @@ export const request = createFlatRequest<App.Service.Response, RequestInstanceSt
         window.addEventListener('beforeunload', handleLogout);
 
         window.$dialog?.error({
-          title: $t('common.error'),
+          title: '错误',
           content: response.data.msg,
-          positiveText: $t('common.confirm'),
+          positiveText: '确定',
           maskClosable: false,
           closeOnEsc: false,
           onPositiveClick() {

@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue';
-import { $t } from '@/locales';
-import { loginModuleRecord } from '@/constants/app';
 import { useRouterPush } from '@/hooks/common/router';
 import { useFormRules, useNaiveForm } from '@/hooks/common/form';
 import { useAuthStore } from '@/store/modules/auth';
@@ -51,19 +49,19 @@ interface Account {
 const accounts = computed<Account[]>(() => [
   {
     key: 'super',
-    label: $t('page.login.pwdLogin.superAdmin'),
+    label: '超级管理员',
     userName: 'Super',
     password: '123456'
   },
   {
     key: 'admin',
-    label: $t('page.login.pwdLogin.admin'),
+    label: '管理员',
     userName: 'Admin',
     password: '123456'
   },
   {
     key: 'user',
-    label: $t('page.login.pwdLogin.user'),
+    label: '普通用户',
     userName: 'User',
     password: '123456'
   }
@@ -77,35 +75,24 @@ async function handleAccountLogin(account: Account) {
 <template>
   <NForm ref="formRef" :model="model" :rules="rules" size="large" :show-label="false">
     <NFormItem path="userName">
-      <NInput v-model:value="model.userName" :placeholder="$t('page.login.common.userNamePlaceholder')" />
+      <NInput v-model:value="model.userName" placeholder="请输入用户名" />
     </NFormItem>
     <NFormItem path="password">
-      <NInput
-        v-model:value="model.password"
-        type="password"
-        show-password-on="click"
-        :placeholder="$t('page.login.common.passwordPlaceholder')"
-      />
+      <NInput v-model:value="model.password" type="password" show-password-on="click" placeholder="请输入密码" />
     </NFormItem>
     <NSpace vertical :size="24">
       <div class="flex-y-center justify-between">
-        <NCheckbox>{{ $t('page.login.pwdLogin.rememberMe') }}</NCheckbox>
-        <NButton quaternary @click="toggleLoginModule('reset-pwd')">
-          {{ $t('page.login.pwdLogin.forgetPassword') }}
-        </NButton>
+        <NCheckbox>记住我</NCheckbox>
+        <NButton quaternary @click="toggleLoginModule('reset-pwd')">忘记密码？</NButton>
       </div>
       <NButton type="primary" size="large" round block :loading="authStore.loginLoading" @click="handleSubmit">
-        {{ $t('common.confirm') }}
+        确定
       </NButton>
       <div class="flex-y-center justify-between gap-12px">
-        <NButton class="flex-1" block @click="toggleLoginModule('code-login')">
-          {{ $t(loginModuleRecord['code-login']) }}
-        </NButton>
-        <NButton class="flex-1" block @click="toggleLoginModule('register')">
-          {{ $t(loginModuleRecord.register) }}
-        </NButton>
+        <NButton class="flex-1" block @click="toggleLoginModule('code-login')">验证码登录</NButton>
+        <NButton class="flex-1" block @click="toggleLoginModule('register')">注册账号</NButton>
       </div>
-      <NDivider class="text-14px text-#666 !m-0">{{ $t('page.login.pwdLogin.otherAccountLogin') }}</NDivider>
+      <NDivider class="text-14px text-#666 !m-0">其他账号登录</NDivider>
       <div class="flex-center gap-12px">
         <NButton v-for="item in accounts" :key="item.key" type="primary" @click="handleAccountLogin(item)">
           {{ item.label }}

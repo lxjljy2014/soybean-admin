@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useThemeStore } from '@/store/modules/theme';
-import { $t } from '@/locales';
 import SettingItem from '../components/setting-item.vue';
 
 defineOptions({
@@ -8,6 +7,16 @@ defineOptions({
 });
 
 const themeStore = useThemeStore();
+
+const themeColorMap = {
+  title: '主题颜色',
+  primary: '主色',
+  info: '信息色',
+  success: '成功色',
+  warning: '警告色',
+  error: '错误色',
+  followPrimary: '跟随主色'
+};
 
 function handleUpdateColor(color: string, key: App.Theme.ThemeColorKey) {
   themeStore.updateThemeColors(key, color);
@@ -34,16 +43,16 @@ const swatches: string[] = [
 </script>
 
 <template>
-  <NDivider>{{ $t('theme.themeColor.title') }}</NDivider>
+  <NDivider>主题颜色</NDivider>
   <div class="flex-col-stretch gap-12px">
     <NTooltip placement="top-start">
       <template #trigger>
-        <SettingItem key="recommend-color" :label="$t('theme.recommendColor')">
+        <SettingItem key="recommend-color" label="应用推荐算法的颜色">
           <NSwitch v-model:value="themeStore.recommendColor" />
         </SettingItem>
       </template>
       <p>
-        <span class="pr-12px">{{ $t('theme.recommendColorDesc') }}</span>
+        <span class="pr-12px">推荐颜色的算法参照</span>
         <br />
         <NButton
           text
@@ -57,11 +66,9 @@ const swatches: string[] = [
         </NButton>
       </p>
     </NTooltip>
-    <SettingItem v-for="(_, key) in themeStore.themeColors" :key="key" :label="$t(`theme.themeColor.${key}`)">
+    <SettingItem v-for="(_, key) in themeStore.themeColors" :key="key" :label="themeColorMap[key]">
       <template v-if="key === 'info'" #suffix>
-        <NCheckbox v-model:checked="themeStore.isInfoFollowPrimary">
-          {{ $t('theme.themeColor.followPrimary') }}
-        </NCheckbox>
+        <NCheckbox v-model:checked="themeStore.isInfoFollowPrimary">跟随主色</NCheckbox>
       </template>
       <NColorPicker
         class="w-90px"

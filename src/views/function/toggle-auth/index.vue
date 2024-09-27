@@ -2,7 +2,6 @@
 import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useLoading } from '@sa/hooks';
-import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
 import { useAuthStore } from '@/store/modules/auth';
 import { useTabStore } from '@/store/modules/tab';
@@ -27,19 +26,19 @@ interface Account {
 const accounts = computed<Account[]>(() => [
   {
     key: 'super',
-    label: $t('page.login.pwdLogin.superAdmin'),
+    label: '超级管理员',
     userName: 'Super',
     password: '123456'
   },
   {
     key: 'admin',
-    label: $t('page.login.pwdLogin.admin'),
+    label: '管理员',
     userName: 'Admin',
     password: '123456'
   },
   {
     key: 'user',
-    label: $t('page.login.pwdLogin.user'),
+    label: '普通用户',
     userName: 'User',
     password: '123456'
   }
@@ -60,14 +59,14 @@ async function handleToggleAccount(account: Account) {
 
 <template>
   <NSpace vertical :size="16">
-    <NCard :title="$t('route.function_toggle-auth')" :bordered="false" size="small" segmented class="card-wrapper">
+    <NCard title="切换权限" :bordered="false" size="small" segmented class="card-wrapper">
       <NDescriptions bordered :column="1">
-        <NDescriptionsItem :label="$t('page.manage.user.userRole')">
+        <NDescriptionsItem label="用户角色">
           <NSpace>
             <NTag v-for="role in authStore.userInfo.roles" :key="role">{{ role }}</NTag>
           </NSpace>
         </NDescriptionsItem>
-        <NDescriptionsItem ions-item :label="$t('page.function.toggleAuth.toggleAccount')">
+        <NDescriptionsItem ions-item label="切换账号">
           <NSpace>
             <NButton
               v-for="account in accounts"
@@ -82,19 +81,11 @@ async function handleToggleAccount(account: Account) {
         </NDescriptionsItem>
       </NDescriptions>
     </NCard>
-    <NCard
-      :title="$t('page.function.toggleAuth.authHook')"
-      :bordered="false"
-      size="small"
-      segmented
-      class="card-wrapper"
-    >
+    <NCard title="权限钩子函数 `hasAuth`" :bordered="false" size="small" segmented class="card-wrapper">
       <NSpace>
-        <NButton v-if="hasAuth('B_CODE1')">{{ $t('page.function.toggleAuth.superAdminVisible') }}</NButton>
-        <NButton v-if="hasAuth('B_CODE2')">{{ $t('page.function.toggleAuth.adminVisible') }}</NButton>
-        <NButton v-if="hasAuth('B_CODE3')">
-          {{ $t('page.function.toggleAuth.adminOrUserVisible') }}
-        </NButton>
+        <NButton v-if="hasAuth('B_CODE1')">超级管理员可见</NButton>
+        <NButton v-if="hasAuth('B_CODE2')">管理员可见</NButton>
+        <NButton v-if="hasAuth('B_CODE3')">管理员和用户可见</NButton>
       </NSpace>
     </NCard>
   </NSpace>

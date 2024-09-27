@@ -6,7 +6,6 @@ import { useBoolean } from '@sa/hooks';
 import { fetchGetAllPages, fetchGetMenuList } from '@/service/api';
 import { useAppStore } from '@/store/modules/app';
 import { useTable, useTableOperate } from '@/hooks/common/table';
-import { $t } from '@/locales';
 import { yesOrNoRecord } from '@/constants/common';
 import { enableStatusRecord, menuTypeRecord } from '@/constants/business';
 import SvgIcon from '@/components/custom/svg-icon.vue';
@@ -28,12 +27,12 @@ const { columns, columnChecks, data, loading, pagination, getData, getDataByPage
     },
     {
       key: 'id',
-      title: $t('page.manage.menu.id'),
+      title: 'ID',
       align: 'center'
     },
     {
       key: 'menuType',
-      title: $t('page.manage.menu.menuType'),
+      title: '菜单类型',
       align: 'center',
       width: 80,
       render: row => {
@@ -42,27 +41,27 @@ const { columns, columnChecks, data, loading, pagination, getData, getDataByPage
           2: 'primary'
         };
 
-        const label = $t(menuTypeRecord[row.menuType]);
+        const label = menuTypeRecord[row.menuType];
 
         return <NTag type={tagMap[row.menuType]}>{label}</NTag>;
       }
     },
     {
       key: 'menuName',
-      title: $t('page.manage.menu.menuName'),
+      title: '菜单名称',
       align: 'center',
       minWidth: 120,
       render: row => {
-        const { i18nKey, menuName } = row;
+        const { menuName } = row;
 
-        const label = i18nKey ? $t(i18nKey) : menuName;
+        const label = menuName;
 
         return <span>{label}</span>;
       }
     },
     {
       key: 'icon',
-      title: $t('page.manage.menu.icon'),
+      title: '图标',
       align: 'center',
       width: 60,
       render: row => {
@@ -79,19 +78,19 @@ const { columns, columnChecks, data, loading, pagination, getData, getDataByPage
     },
     {
       key: 'routeName',
-      title: $t('page.manage.menu.routeName'),
+      title: '路由名称',
       align: 'center',
       minWidth: 120
     },
     {
       key: 'routePath',
-      title: $t('page.manage.menu.routePath'),
+      title: '路由路径',
       align: 'center',
       minWidth: 120
     },
     {
       key: 'status',
-      title: $t('page.manage.menu.menuStatus'),
+      title: '菜单状态',
       align: 'center',
       width: 80,
       render: row => {
@@ -104,14 +103,14 @@ const { columns, columnChecks, data, loading, pagination, getData, getDataByPage
           2: 'warning'
         };
 
-        const label = $t(enableStatusRecord[row.status]);
+        const label = enableStatusRecord[row.status];
 
         return <NTag type={tagMap[row.status]}>{label}</NTag>;
       }
     },
     {
       key: 'hideInMenu',
-      title: $t('page.manage.menu.hideInMenu'),
+      title: '隐藏菜单',
       align: 'center',
       width: 80,
       render: row => {
@@ -122,44 +121,44 @@ const { columns, columnChecks, data, loading, pagination, getData, getDataByPage
           N: 'default'
         };
 
-        const label = $t(yesOrNoRecord[hide]);
+        const label = yesOrNoRecord[hide];
 
         return <NTag type={tagMap[hide]}>{label}</NTag>;
       }
     },
     {
       key: 'parentId',
-      title: $t('page.manage.menu.parentId'),
+      title: '父级菜单ID',
       width: 90,
       align: 'center'
     },
     {
       key: 'order',
-      title: $t('page.manage.menu.order'),
+      title: '排序',
       align: 'center',
       width: 60
     },
     {
       key: 'operate',
-      title: $t('common.operate'),
+      title: '操作',
       align: 'center',
       width: 230,
       render: row => (
         <div class="flex-center justify-end gap-8px">
           {row.menuType === '1' && (
             <NButton type="primary" ghost size="small" onClick={() => handleAddChildMenu(row)}>
-              {$t('page.manage.menu.addChildMenu')}
+              新增子菜单
             </NButton>
           )}
           <NButton type="primary" ghost size="small" onClick={() => handleEdit(row)}>
-            {$t('common.edit')}
+            编辑
           </NButton>
           <NPopconfirm onPositiveClick={() => handleDelete(row.id)}>
             {{
-              default: () => $t('common.confirmDelete'),
+              default: () => '确认删除吗？',
               trigger: () => (
                 <NButton type="error" ghost size="small">
-                  {$t('common.delete')}
+                  删除
                 </NButton>
               )
             }}
@@ -228,7 +227,7 @@ init();
 
 <template>
   <div ref="wrapperRef" class="flex-col-stretch gap-16px overflow-hidden lt-sm:overflow-auto">
-    <NCard :title="$t('page.manage.menu.title')" :bordered="false" size="small" class="sm:flex-1-hidden card-wrapper">
+    <NCard title="菜单列表" :bordered="false" size="small" class="sm:flex-1-hidden card-wrapper">
       <template #header-extra>
         <TableHeaderOperation
           v-model:columns="columnChecks"

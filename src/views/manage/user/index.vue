@@ -1,7 +1,6 @@
 <script setup lang="tsx">
 import { NButton, NPopconfirm, NTag } from 'naive-ui';
 import { fetchGetUserList } from '@/service/api';
-import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
 import { enableStatusRecord, userGenderRecord } from '@/constants/business';
 import { useTable, useTableOperate } from '@/hooks/common/table';
@@ -43,19 +42,19 @@ const {
     },
     {
       key: 'index',
-      title: $t('common.index'),
+      title: '序号',
       align: 'center',
       width: 64
     },
     {
       key: 'userName',
-      title: $t('page.manage.user.userName'),
+      title: '用户名',
       align: 'center',
       minWidth: 100
     },
     {
       key: 'userGender',
-      title: $t('page.manage.user.userGender'),
+      title: '性别',
       align: 'center',
       width: 100,
       render: row => {
@@ -68,32 +67,32 @@ const {
           2: 'error'
         };
 
-        const label = $t(userGenderRecord[row.userGender]);
+        const label = userGenderRecord[row.userGender];
 
         return <NTag type={tagMap[row.userGender]}>{label}</NTag>;
       }
     },
     {
       key: 'nickName',
-      title: $t('page.manage.user.nickName'),
+      title: '昵称',
       align: 'center',
       minWidth: 100
     },
     {
       key: 'userPhone',
-      title: $t('page.manage.user.userPhone'),
+      title: '手机号',
       align: 'center',
       width: 120
     },
     {
       key: 'userEmail',
-      title: $t('page.manage.user.userEmail'),
+      title: '邮箱',
       align: 'center',
       minWidth: 200
     },
     {
       key: 'status',
-      title: $t('page.manage.user.userStatus'),
+      title: '用户状态',
       align: 'center',
       width: 100,
       render: row => {
@@ -106,27 +105,27 @@ const {
           2: 'warning'
         };
 
-        const label = $t(enableStatusRecord[row.status]);
+        const label = enableStatusRecord[row.status];
 
         return <NTag type={tagMap[row.status]}>{label}</NTag>;
       }
     },
     {
       key: 'operate',
-      title: $t('common.operate'),
+      title: '操作',
       align: 'center',
       width: 130,
       render: row => (
         <div class="flex-center gap-8px">
           <NButton type="primary" ghost size="small" onClick={() => edit(row.id)}>
-            {$t('common.edit')}
+            编辑
           </NButton>
           <NPopconfirm onPositiveClick={() => handleDelete(row.id)}>
             {{
-              default: () => $t('common.confirmDelete'),
+              default: () => '确认删除吗？',
               trigger: () => (
                 <NButton type="error" ghost size="small">
-                  {$t('common.delete')}
+                  删除
                 </NButton>
               )
             }}
@@ -171,7 +170,7 @@ function edit(id: number) {
 <template>
   <div class="min-h-500px flex-col-stretch gap-16px overflow-hidden lt-sm:overflow-auto">
     <UserSearch v-model:model="searchParams" @reset="resetSearchParams" @search="getDataByPage" />
-    <NCard :title="$t('page.manage.user.title')" :bordered="false" size="small" class="sm:flex-1-hidden card-wrapper">
+    <NCard title="用户列表" :bordered="false" size="small" class="sm:flex-1-hidden card-wrapper">
       <template #header-extra>
         <TableHeaderOperation
           v-model:columns="columnChecks"
